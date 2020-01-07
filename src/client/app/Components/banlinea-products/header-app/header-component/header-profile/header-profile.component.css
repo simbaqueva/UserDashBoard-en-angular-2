@@ -1,0 +1,64 @@
+.welcome-text, .date{
+    font-family: 'Ubuntu';
+    color: #777777;
+    font-weight: lighter;
+}
+
+.display-table{
+    padding: 1.2em 0;
+    height: 4.3em;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.welcome-text{
+    font-size: 1.3em;
+    padding: 0.7em 1em;
+}
+.welcome-text span {
+    color: #005DB8
+}
+.display-table{
+    padding: 0em;
+    height: 4.3em;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 0px 10px 1px #cacaca;
+}
+.date{
+    font-family: 'Ubuntu';
+    font-size: 1em;
+    font-weight: 500;
+    
+}
+.welcome{
+    width: 55%;
+    margin: auto;
+}
+
+.sign-out{
+    font-size: 1.2em;
+    color: #0059BB;
+    float: right;
+}
+
+.actual-session{
+    display: inline-block;
+    padding-top: 0.5vw;
+    padding-left: 2vw;
+}
+
+
+@media (max-width: 1400px){
+    .welcome-text{
+        font-size: 1em;
+    }
+    .date{
+        font-size: .7em;
+        padding-top: .4em;
+    }
+    .sign-out{
+        font-size: 1em;
+    }
+}
+

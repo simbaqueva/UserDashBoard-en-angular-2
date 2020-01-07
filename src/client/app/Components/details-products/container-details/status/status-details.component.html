@@ -1,0 +1,99 @@
+<div class="row display">
+    <div class="col-md-3 container">
+        <div class="row">
+            <div class="button" [routerLink]="['/mis-productos/todos']">
+                <span class="col-md-1 fa fa-angle-left" aria-hidden="true"></span>
+                <div class="col-md-4"> 
+                    <p class="back">VOLVER</p>
+                </div>
+            </div>
+        </div>
+            <hr>
+        <h1 class="details">DETALLES</h1>
+        <div class="state">Estado
+            <div class="events" [ngSwitch]="accounts[0]?.status">
+                <p class="active" *ngSwitchCase="'Activo'"><span>•</span> ACTIVO</p>
+                <p class=" inactive " *ngSwitchCase="'Inactivo'"><span>•</span> INACTIVO</p>
+                <p class="approved" *ngSwitchCase="'Aprobada'"><span>•</span> APROBADA</p>
+                <p class="ended" *ngSwitchCase="'Finalizado'"><span>•</span> FINALIZADO</p>
+                <p class="inactive" *ngSwitchCase="'Vencido'"><span>•</span> VENCIDO</p>
+            </div>
+        </div>
+        <div class="opening">
+            <p>Fecha de apertura</p>
+            <p>MARZO 27, DE 2017</p>
+            <br>
+            <p *ngIf="accounts[0].product_type == '1'">Exento 4x1000</p>
+            <div class="dates" *ngIf="accounts[0].product_type == '5'">
+                <p>Fecha de Corte</p>
+                <div class="date row">
+                    <span class="day-month col-md-2">{{accounts[1].cutoff_date.day_number}}</span>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <span>{{accounts[1].cutoff_date.day}}</span>
+                        </div>
+                        <div class="row">
+                            <span>{{accounts[1].cutoff_date.month}}, {{accounts[1].cutoff_date.year}}</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Proximo pago</p>
+                <div class="date row">
+                    <span class="day-month col-md-2">{{accounts[1].next_pay.day_number}}</span>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <span>{{accounts[1].next_pay.day}}</span>
+                        </div>
+                        <div class="row">
+                            <span>{{accounts[1].next_pay.month}}, {{accounts[1].next_pay.year}}</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Limite de pago</p>
+                <div class="date row">
+                    <span class="day-month col-md-2">{{accounts[1].limit_payment.day_number}}</span>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <span>{{accounts[1].limit_payment.day}}</span>
+                        </div>
+                        <div class="row">
+                            <span>{{accounts[1].limit_payment.month}}, {{accounts[1].limit_payment.year}}</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="penalty" *ngIf="accounts[0].product_type == '3'">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="balance">
+                            {{balance.penalty}}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p> Disponible con penalidad</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="details_button">Ver detalles</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="balance">
+                            {{balance.without_penalty}}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p> Disponible sin Penalidad</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="details_button">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <status-content [accounts]="accounts"></status-content>  
+</div>

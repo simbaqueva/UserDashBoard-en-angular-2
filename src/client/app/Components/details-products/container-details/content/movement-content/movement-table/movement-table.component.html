@@ -1,0 +1,76 @@
+<div *ngIf="accounts[0].product_type == '1'">
+    <div class="row description">
+        <div class="col-md-3">
+            <span class="header-title">FECHA</span>
+        </div>
+        <div class="col-md-4">
+            <span>DESCRIPCIÓN</span>
+        </div>
+        <div class="col-md-3">
+            <span>OFICINA</span>
+        </div>
+        <div class="col-md-2">
+            <span>VALOR</span>
+        </div>
+    </div>
+    <div class="content-height">
+        <div class="row content" *ngFor="let movement of movements[actual_page]; let isOdd= odd" [ngClass]="{gray: isOdd}">
+            <div class="col-md-3">
+                <span>{{movement.date}}</span>
+            </div>
+            <div class="col-md-4">
+                <span>{{movement.description}}</span>
+            </div>
+            <div class="col-md-3">
+                <span>{{movement.office}}</span>
+            </div>
+            <div class="col-md-2" [ngClass]="getColorClass(movement.value)">
+                <span>{{value}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="accounts[0].product_type == '5'">
+    <div class="row description">
+        <div class="col-md-2">
+            <span>FECHA</span>
+        </div>
+        <div class="col-md-4">
+            <span>DESCRIPCIÓN</span>
+        </div>
+        <div class="col-md-2">
+            <span>PAZO</span>
+        </div>
+        <div class="col-md-2">
+            <span>MONEDA</span>
+        </div>
+        <div class="col-md-2">
+            <span>VALOR</span>
+        </div>
+    </div>
+    <div class="content-height">
+        <div class="row content" *ngFor="let movement of movements[actual_page]; let isOdd= odd" [ngClass]="{gray: isOdd}">
+            <div class="col-md-2">
+                <span>{{movement.date}}</span>
+            </div>
+            <div class="col-md-4">
+                <span>{{movement.description}}</span>
+            </div>
+            <div class="col-md-2">
+                <span>{{movement.term}}</span>
+            </div>
+            <div class="col-md-2" [ngClass]="getColorClass(movement.currency)">
+                <span>{{value}}</span>
+            </div>
+            <div class="col-md-2" [ngClass]="getColorClass(movement.value)">
+                <span>{{value}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row pages">
+    <div class="col-md-6">
+        <p><i class="fa fa-chevron-left" aria-hidden="true" (click)="arrowPagination(0)" [ngClass]="{green: 1 <= actual_page}"></i>Mostrando <span class="actual-page">{{actual_page+1}}</span> de {{movements.length}}<i class="fa fa-chevron-right" aria-hidden="true" (click)="arrowPagination(1)" [ngClass]="{green: actual_page < movements.length-1}"></i></p>
+    </div>
+    <extract-button class="col-md-2 col-md-offset-3" ></extract-button>
+</div>

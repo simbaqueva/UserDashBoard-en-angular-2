@@ -1,0 +1,161 @@
+
+<div class="products">
+  <div class="row"> 
+   
+    <div class="col-md-4"> 
+            <div class="">   
+                
+            </div>
+    </div> 
+        <div class="col-md-2 col-md-offset-6">
+            <div class="produt"><a class="numproduc">{{data_lenght}}</a> <a class="prod">PRODUCTOS</a>
+         </div>
+      </div>  
+    </div> 
+  
+  <div class="row">
+      <div class="col-md-6">
+          <h1 (click)="test()">Mis productos Banlinea</h1>
+      </div>
+      <div class="col-md-2 col-md-offset-4">
+        <!--<div class="wrap">
+                                     
+					<select class="sel cs-skin-border" #valor name="sel" (change)="filterByStatus(valor.value)">
+                        <option  selected>filtrar por</option>
+						 <option class="opt" value="Activo">ACTIVO</option>
+                         <option class="opt" value="Inactivo">INACTIVO</option>
+					</select>
+                  
+	     </div>-->
+          <div>
+                <select class="sel" #valor name="sel" (change)="filterByStatus(valor.value)">
+                    <option  selected>Filtrar por </option>
+                    <option class="opt" value="all">Todos</option>
+                    <option class="opt" value="Activo">Activo</option>
+                    <option class="opt" value="Inactivo">Inactivo</option>
+                    <option class="opt" value="Aprobada">Aprobada</option>
+                    <option class="opt" value="Finalizado">Finalizado</option>
+                    <option class="opt" value="Vencido">Vencido</option>
+                </select>
+          </div>          
+      </div>
+  </div>      
+ 
+
+
+    <div class="table-header"  *ngIf="products.banlineaProducts.length!=0"> 
+        <div class="row">
+            <p class="col-md-1 text-center">Fecha</p>
+            <p class="col-md-4">Producto</p>
+            <p class="col-md-2 text-center">Entidades</p>
+            <p class="col-md-2 col-md-offset-1">Estado</p>
+            <p class="col-md-2 text-center">Detalle</p>
+        </div>
+    </div>
+    <div [ngSwitch]="filterBy">
+        <div *ngSwitchCase="all">
+            <div  *ngIf="products.banlineaProducts.length == 0">
+                    <p class="noprod">No tienes productos  de Banlinea<br><a class="regis" href="#">Click aquí para registrar</a></p>
+            </div>
+        </div> 
+
+
+        <div *ngSwitchCase="1">
+            <div  *ngIf="products.banlineaProducts.length == 0">
+                    <p class="noprod">No tienes productos de cuentas de ahorros de Banlinea<br><a class="regis" href="#">Click aquí para registrar</a></p>
+            </div>
+        </div> 
+
+        <div *ngSwitchCase="2">
+            <div  *ngIf="products.banlineaProducts.length == 0">
+                    <p class="noprod">No tienes productos de credito y financiación de Banlinea<br><a class="regis" href="#">Click aquí para registrar</a></p>
+            </div>
+        </div>  
+                <div *ngSwitchCase="3">
+            <div  *ngIf="products.banlineaProducts.length == 0">
+                    <p class="noprod">No tienes productos de inversión de Banlinea<br><a class="regis" href="#">Click aquí para registrar</a></p>
+            </div>
+        </div>
+        <div *ngSwitchCase="4">
+            <div  *ngIf="products.banlineaProducts.length == 0">
+                    <p class="noprod">No tienes productos de seguros de Banlinea<br><a class="regis" href="#">Click aquí para registrar</a></p>
+         </div>
+        </div>
+        <div *ngSwitchCase="5">
+            <div  *ngIf="products.banlineaProducts.length == 0">
+                    <p class="noprod">No tienes productos de tarjetas de credito de Banlinea<br><a class="regis" href="#">Click aquí para registrar</a></p>
+           </div>
+        </div>
+
+      </div> 
+          <!--<div  *ngIf="products.banlineaProducts.length == 0">
+                    <p class="noprod">No tienes productos Banlinea<br><a class="regis" href="#">Click aquí para registrar</a></p>
+            </div>-->
+    <div  *ngFor="let data of products.banlineaProducts">
+        <div>
+            <div>
+                <table-content [event]="data"></table-content>
+            </div>
+        </div>
+    </div>
+    <h1>Productos otras entidades</h1>
+    <div  class="table-header" *ngIf="products.otherProducts.length!=0"> 
+        <div class="row">
+            <p class="col-md-1 text-center">Fecha</p>
+            <p class="col-md-4">Producto</p>
+            <p class="col-md-2 text-center">Entidades</p>
+            <p class="col-md-2 col-md-offset-1">Estado</p>
+            <p class="col-md-2 text-center">Detalle</p>
+        </div>
+       
+    </div>
+
+        <div [ngSwitch]="filterBy">
+
+           <div *ngSwitchCase="all">
+                <div *ngIf="products.otherProducts.length == 0">
+                     <p class="noprod">No tienes productos  de otras entidades<br><a class="regis" href="#">Click aquí para registrar</a></p>  
+              </div>
+            </div>
+
+           <div *ngSwitchCase="1">
+                <div *ngIf="products.otherProducts.length == 0">
+                     <p class="noprod">No tienes productos de cuentas de ahorros de otras entidades<br><a class="regis" href="#">Click aquí para registrar</a></p>  
+              </div>
+            </div>
+
+           <div *ngSwitchCase="2">
+                <div *ngIf="products.otherProducts.length == 0">
+                     <p class="noprod">No tienes productos de credito y financiación de otras entidades<br><a class="regis" href="#">Click aquí para registrar</a></p>  
+              </div>
+            </div> 
+
+           <div *ngSwitchCase="3">
+               <div  *ngIf="products.otherProducts.length == 0">
+                    <p class="noprod">No tienes productos de inversión de otras entidades<br><a class="regis" href="#">Click aquí para registrar</a></p>
+                </div>
+            </div> 
+
+            <div *ngSwitchCase="4">
+                 <div *ngIf="products.otherProducts.length == 0">
+                     <p class="noprod">No tienes productos de seguros de otras entidades<br><a class="regis" href="#">Click aquí para registrar</a></p>  
+                 </div>
+            </div>
+
+           <div *ngSwitchCase="5">
+                 <div *ngIf="products.otherProducts.length == 0">
+                     <p class="noprod">No tienes productos de tarjetas de credito de  otras entidades<br><a class="regis" href="#">Click aquí para registrar</a></p>  
+                 </div>
+            </div>
+
+
+         </div>
+       
+    <div *ngFor="let data of products.otherProducts">
+        <div>
+            <div>
+                <table-content [event]="data"></table-content> 
+            </div>
+        </div>            
+    </div>
+</div>

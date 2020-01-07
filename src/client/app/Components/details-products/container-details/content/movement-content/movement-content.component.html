@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-3 text-center">Movimientos</div>
+    <div class="col-md-3 button">
+        <label>Fecha Inicial</label>
+        <div>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions"></my-date-picker>
+        </div>
+    </div>
+    <div class="col-md-3 button">
+        <label>Fecha Final</label>
+        <div>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions"></my-date-picker>
+        </div>
+    </div>
+    <div class="col-md-3 advice text-center">
+        <a>Consultar</a>
+    </div>
+</div>
+<movement-table [accounts]="accounts"></movement-table>

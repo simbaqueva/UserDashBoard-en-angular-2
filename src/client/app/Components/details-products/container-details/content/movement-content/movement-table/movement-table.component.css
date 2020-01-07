@@ -1,0 +1,71 @@
+.description{
+    padding-top: 1em;
+    margin: 1em .7em 0 .7em;
+    font-family: 'Ubuntu';
+}
+.description div{
+    padding: 1em 0em;
+    background-color: #6B727E;
+    color: white;
+    border-left-color: white;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+}
+
+.description div span{
+    font-size: .6vw;
+    padding-left: 1em;
+}
+
+.description div span::after{
+    content: "\f0dc";
+    margin-left: 1em;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.content-height{
+    height: 400px;
+}
+.content{
+    margin: 0em .7em;
+}
+
+.content div{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: .6vw;
+}
+
+.red{
+    color:red !important;
+}
+
+.pages{
+    padding: 2em .7em;
+}
+
+.pages div p{
+    padding: .7em;
+}
+.fa-chevron-left, .fa-chevron-right{
+    font-size: .8vw;
+    cursor: pointer;
+    padding: .5em;
+}
+
+.actual-page{
+    color: #66BF45;
+    border-bottom: 1px solid #66BF45
+}
+
+.gray {
+    background-color: #F5F5F5; 
+}
+
+.green{
+    color: #66BF45;
+}

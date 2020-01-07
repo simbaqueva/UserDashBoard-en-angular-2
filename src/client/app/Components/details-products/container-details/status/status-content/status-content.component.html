@@ -1,0 +1,64 @@
+<div class="col-md-9 content">
+    <div class="display row">
+        <div class="row header-content">
+                <div class="col-md-6">
+                    <p class="product" >{{accounts[0].product}}</p>
+                    <p *ngIf="accounts[0].product_type == '1'" class="id">{{accounts[1].code}}</p>
+                    <p class="id">{{accounts[1].account_number}}</p>
+                </div>
+                <div *ngIf="accounts[0].product_type == '5'">
+                    <div class="col-md-3">
+                        <div class="quota"><span class="sign-properties">$</span>{{balance.total_quota}}.00</div>
+                        <p>Cupo Total </p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="quota"><span class="sign-properties">$</span>{{balance.disponible}}.00</div>
+                        <p>Disponible </p>
+                    </div>
+                </div>
+        </div>
+        <div *ngIf="accounts[0].product_type == '1'" class="info">
+            <div class="col-md-2">
+                <p><span>$</span>{{balance.total}}.00</p>
+                <p>Saldo Total</p>
+            </div>
+            <div class="col-md-2">
+                <p><span>$</span>{{balance.avaliable}}.00</p>
+                <p>Saldo Disponible</p>
+            </div>
+            <div class="col-md-2">
+                <p><span>$</span>{{balance.exchange}}.00</p>
+                <p>Saldo en Canje</p>
+            </div>
+            <extract-button class="col-md-1"></extract-button>
+            <div class="col-md-1 transfer text-center">
+                <a>Transferir</a>
+            </div>
+        </div>
+        <div *ngIf="accounts[0].product_type == '5'" class="info">
+            <div class="col-md-2">
+                <p [ngClass]="{'red-sign': accounts[1].total_balance <= 0}">
+                    <span [ngClass]="{'red-sign': accounts[1].total_balance <= 0, 'green-sign' : accounts[1].total_balance > 0}" class="sign-properties">$</span>{{balance.total}}.00
+                </p>
+                <p>Saldo Total</p>
+            </div>
+            <div class="col-md-2">
+                <p [ngClass]="{'red-sign': accounts[1].minimum_payment <= 0}">
+                    <span [ngClass]="{'red-sign': accounts[1].minimum_payment <= 0, 'green-sign' : accounts[1].minimum_payment > 0}" class="sign-properties">$</span>{{balance.minimum}}.00
+                </p>
+                <p>Saldo Mínimo</p>
+            </div>
+            <div class="col-md-2">
+                <p [ngClass]="{'red-sign': accounts[1].overdue_balance <= 0}">
+                    <span [ngClass]="{'red-sign': accounts[1].overdue_balance <= 0, 'green-sign' : accounts[1].overdue_balance > 0}" class="sign-properties">$</span>{{balance.overdue}}.00
+                </p>
+                <p>Saldo en Mora</p>
+            </div>
+            <extract-button class="col-md-1"></extract-button>
+            <div class="col-md-1 transfer text-center">
+                <a>Transferir</a>
+            </div>
+        </div>
+    <movement-content [accounts]="accounts"></movement-content>
+    </div>
+</div>

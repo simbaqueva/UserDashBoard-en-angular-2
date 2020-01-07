@@ -1,0 +1,20 @@
+<div class="row table-content">
+    <div class="col-md-1">
+        <h3 class="text-center day">{{event.date.day}}</h3>
+        <div class="text-data">
+            <p class="text-center acronym">{{event?.date.acronym}}</p>
+            <p class="text-center month">{{event?.date.month}}</p>
+        </div>
+    </div>
+    <h1 class="col-md-4">{{event?.product}}</h1>
+    <h1 class="col-md-2 text-center">{{event?.entity}}</h1>
+    <div [ngSwitch]="event?.status">
+        <h1 class="col-md-2 col-md-offset-1 active" *ngSwitchCase="'Activo'"><span>•</span> ACTIVO</h1>
+        <h1 class="col-md-2 col-md-offset-1 inactive " *ngSwitchCase="'Inactivo'"><span>•</span> INACTIVO</h1>
+        <h1 class="col-md-2 col-md-offset-1 approved" *ngSwitchCase="'Aprobada'"><span>•</span> APROBADA</h1>
+        <h1 class="col-md-2 col-md-offset-1 ended" *ngSwitchCase="'Finalizado'"><span>•</span> FINALIZADO</h1>
+        <h1 class="col-md-2 col-md-offset-1 inactive" *ngSwitchCase="'Vencido'"><span>•</span> VENCIDO</h1>
+    </div>
+    <a class="col-md-2 text-center details" [routerLink]="['/mis-productos/detalles', event?.product_id]" *ngIf="event?.entity=='Banlinea'">VER</a>
+    <h1 class="col-md-2 text-center remove" *ngIf="event?.entity!='Banlinea'">ELIMINAR</h1>
+</div>

@@ -1,0 +1,60 @@
+header {
+    background: linear-gradient(90deg, #69C145, #005CBB);
+    height: 112px;
+}
+
+.filter{
+    width: 54vw;
+    margin: auto;
+    padding: 1em 0em;
+    text-align: center;
+}
+
+a{ 
+    color: #cacaca;
+    font-size: 1em;
+    padding: 0;
+    margin: auto .3em;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+@media (max-width: 1400px){
+    a{
+        font-size: .7em;
+    }
+}
+a::before{
+    font-family: FontAwesome;
+    content: "\f10c";
+
+}
+a:hover{
+    color:white;
+}
+
+a.active{
+    color:white;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a.active::before{
+   font-family:FontAwesome;
+   content: "\f192";
+
+}
+.text-center span{
+    font-size: 1.5em;
+}
+
+span.glyphicon.glyphicon-record{
+    font-size: .9em !important;
+}
